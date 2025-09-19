@@ -1,0 +1,7 @@
+<resources>
+    <string name="titulo">PlayJuegos</string>
+    <string name="op1">Play</string>
+    <string name="op2">New Player</string>
+    <string name="op3">Preferences</string>
+    <string name="op4">About</string>
+</resources>
