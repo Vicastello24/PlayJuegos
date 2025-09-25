@@ -20,7 +20,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -53,124 +55,130 @@ fun New_Player (name: NavHostController,modifier: Modifier = Modifier) {
 
         }
     }
+    var estadoOutlined by remember { mutableStateOf(" ") }
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xFFB6FAB9)),
+            .background(Color(0xFFB6FAB9))
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally){
         Row {
-            Box(modifier = Modifier.fillMaxSize()){
-                Image(
-                    painter = painterResource(id = R.drawable.account),
-                    contentDescription = "Account",
-                    modifier = Modifier.requiredSize(75.dp)
-                        .absoluteOffset(x = 25.dp, y = 20.dp)
-                )
-                Image(
-                    painter = painterResource(id = R.drawable.android),
-                    contentDescription = "Account",
-                    modifier = Modifier.requiredSize(75.dp)
-                        .absoluteOffset(x = 135.dp, y = 270.dp)
-                )
+            Image(
+                painter = painterResource(id = R.drawable.account),
+                contentDescription = "Account",
+                modifier = Modifier.requiredSize(75.dp)
 
-                var estadoOutlined by remember { mutableStateOf(" ") }
-                OutlinedTextField(
-                    value = estadoOutlined,
-                    onValueChange = { estadoOutlined = it },
-                    label = { Text(text = "Nombre") },
-                    modifier = Modifier.padding(10.dp)
-                        .width(250.dp)
-                        .height(60.dp)
-                        .absoluteOffset(x = 130.dp, y = 20.dp),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Color.Yellow,
-                        unfocusedBorderColor = Color.Green
-                    ))
-                OutlinedTextField(
+            )
+            OutlinedTextField(
+                value = estadoOutlined,
+                onValueChange = { estadoOutlined = it },
+                label = { Text(text = "Nombre") },
+                modifier = Modifier.padding(10.dp)
+                    .width(250.dp)
+                    .height(60.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Yellow,
+                    unfocusedBorderColor = Color.Green
+                ))
+        }
+        Row {
+            Spacer(modifier = Modifier.width(74.dp)
+            )
+            OutlinedTextField(
                     value = estadoOutlined,
                     onValueChange = { estadoOutlined = it },
                     label = { Text(text = "Apellidos") },
                     modifier = Modifier.padding(10.dp)
                         .width(250.dp)
-                        .height(60.dp)
-                        .absoluteOffset(x = 130.dp, y = 100.dp),
+                        .height(60.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = Color.Yellow,
                         unfocusedBorderColor = Color.Green
                     ))
-                OutlinedTextField(
-                    value = estadoOutlined,
-                    onValueChange = { estadoOutlined = it },
-                    label = { Text(text = "Nickname") },
-                    modifier = Modifier.padding(10.dp)
-                        .width(250.dp)
-                        .height(60.dp)
-                        .absoluteOffset(x = 130.dp, y = 180.dp),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Color.Yellow,
-                        unfocusedBorderColor = Color.Green
-                    ))
+        }
+        Row {
+            Spacer(modifier = Modifier.width(74.dp)
+            )
+            OutlinedTextField(
+                value = estadoOutlined,
+                onValueChange = { estadoOutlined = it },
+                label = { Text(text = "Nickname") },
+                modifier = Modifier.padding(10.dp)
+                    .width(250.dp)
+                    .height(60.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Yellow,
+                    unfocusedBorderColor = Color.Green
+                ))
+        }
+        Row {
+            Spacer(
+                modifier = Modifier.width(50.dp)
+            )
+            Image(
+                painter = painterResource(id = R.drawable.android),
+                contentDescription = "Account",
+                modifier = Modifier.requiredSize(75.dp)
+            )
+            Spacer(modifier = Modifier.width(35.dp))
+            Button(
+                onClick = {}, modifier = Modifier
+                    .width(115.dp)
+                    .padding(5.dp)
+                    .height(35.dp)
+                    .offset(x = 0.dp, y = 15.dp),
+                shape = RoundedCornerShape(1.dp),
+                colors = ButtonColors(
+                    Color.Yellow,
+                    Color.Black,
+                    Color.Yellow,
+                    Color.Yellow
+                )
+            ) {
+                Text(text = "Change")
+            }
+        }
+            Row {
+                Image(
+                    painter = painterResource(id = R.drawable.camera),
+                    contentDescription = "Camera",
+                    modifier = Modifier.requiredSize(75.dp)
+                )
                 OutlinedTextField(
                     value = estadoOutlined,
                     onValueChange = { estadoOutlined = it },
                     label = { Text(text = "Telefono") },
                     modifier = Modifier.padding(10.dp)
                         .width(250.dp)
-                        .height(60.dp)
-                        .absoluteOffset(x = 130.dp, y = 350.dp),
+                        .height(60.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = Color.Yellow,
                         unfocusedBorderColor = Color.Green
                     ))
-                Button(onClick = {},modifier = Modifier
-                    .width(115.dp)
-                    .padding(5.dp)
-                    .height(35.dp)
-                    .absoluteOffset(x = 230.dp, y = 285.dp), shape = RoundedCornerShape(1.dp), colors = ButtonColors(Color.Yellow,Color.Black,Color.Yellow,Color.Yellow)
-                    ) {
-                    Text(text = "Change")
-
-
                 }
-                Image(
-                    painter = painterResource(id = R.drawable.camera),
-                    contentDescription = "Camera",
-                    modifier = Modifier.requiredSize(75.dp)
-                        .absoluteOffset(x = 25.dp, y = 355.dp)
-                )
-                OutlinedTextField(
-                    value = estadoOutlined,
-                    onValueChange = { estadoOutlined = it },
-                    label = { Text(text = "Email") },
-                    modifier = Modifier.padding(10.dp)
-                        .width(250.dp)
-                        .height(60.dp)
-                        .absoluteOffset(x = 130.dp, y = 430.dp),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Color.Yellow,
-                        unfocusedBorderColor = Color.Green
-                    ))
-                Image(
-                    painter = painterResource(id = R.drawable.email),
-                    contentDescription = "Email",
-                    modifier = Modifier.requiredSize(75.dp)
-                        .absoluteOffset(x = 25.dp, y = 435.dp)
-                )
-            }
-
+        Row {
+            Image(
+                painter = painterResource(id = R.drawable.email),
+                contentDescription = "Email",
+                modifier = Modifier.requiredSize(75.dp)
+            )
+            OutlinedTextField(
+                value = estadoOutlined,
+                onValueChange = { estadoOutlined = it },
+                label = { Text(text = "Email") },
+                modifier = Modifier.padding(10.dp)
+                    .width(250.dp)
+                    .height(60.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Yellow,
+                    unfocusedBorderColor = Color.Green
+                ))
         }
-        var estadoOutlined by remember { mutableStateOf(" ") }
-        OutlinedTextField(
-            value = estadoOutlined,
-            onValueChange = { estadoOutlined = it },
-            label = { Text(text = "Hola") },
-            modifier = Modifier.padding(10.dp),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = Color.Yellow,
-                unfocusedBorderColor = Color.Green
-            ))
-    }
+            }
 
 
 }
+
+
+

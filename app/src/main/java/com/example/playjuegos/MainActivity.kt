@@ -152,17 +152,17 @@ class MainActivity : ComponentActivity() {
                 modifier = modifier, color = MaterialTheme.colorScheme.tertiary,
                 style = MaterialTheme.typography.bodyLarge
             )
-
+            Spacer(
+                modifier = modifier
+                    .size(40.dp)
+            )
 
             val buttonModifier = Modifier
                 .width(300.dp)
                 .padding(5.dp)
                 .height(35.dp)
             Row {
-                Spacer(
-                    modifier = modifier
-                        .size(40.dp)
-                )
+
                 Button(
                     onClick = {/**/ },
                     modifier = buttonModifier,
@@ -172,7 +172,7 @@ class MainActivity : ComponentActivity() {
                     Text(text = "Play")
                 }
                 Button(
-                    onClick = {/**/ },
+                    onClick = {navController.navigate("New_Player")},
                     modifier = buttonModifier,
                     colors = ButtonDefaults.buttonColors(Color(0xFF5AA65D))
                 )
