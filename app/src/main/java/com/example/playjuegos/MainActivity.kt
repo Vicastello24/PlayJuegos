@@ -34,7 +34,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.playjuegos.ui.theme.PlayJuegosTheme
 
-
+import com.example.playjuegos.ui.theme.Preferencias
+import java.util.prefs.Preferences
 
 
 class MainActivity : ComponentActivity() {
@@ -53,7 +54,7 @@ class MainActivity : ComponentActivity() {
                     {
                         composable("Portada") { Portada(navController) }
                         composable("New_Player") { New_Player(navController) }
-
+                        composable("Preferencias") { Preferencias(navController) }
                     }
                 }
             }
@@ -117,7 +118,7 @@ class MainActivity : ComponentActivity() {
                 Text(text = "New Player")
             }
             Button(
-                onClick = {},
+                onClick = {navController.navigate("Preferencias")},
                 modifier = buttonModifier,
                 colors = ButtonDefaults.buttonColors(Color(0xFF5AA65D))
             )

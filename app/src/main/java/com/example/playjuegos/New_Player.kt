@@ -49,7 +49,7 @@ import androidx.navigation.NavHostController
 
 
 @Composable
-fun New_Player (name: NavHostController,modifier: Modifier = Modifier) {
+fun New_Player (NavController: NavHostController,modifier: Modifier = Modifier) {
     when (LocalConfiguration.current.orientation){
         Configuration.ORIENTATION_LANDSCAPE->{
 
